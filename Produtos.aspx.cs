@@ -355,7 +355,7 @@ namespace Levira1
                 using (SqlBulkCopy bulkCopy = new SqlBulkCopy(conString))
                 {
                     bulkCopy.BulkCopyTimeout = 60;
-                    bulkCopy.DestinationTableName = "[dbo].[leviraprodtexteis]";
+                    bulkCopy.DestinationTableName = "[dbo].[prodtexteis]";
                     //limite rows a enviar--> bulkCopy.BatchSize = 0;
                     /*bulkCopy.ColumnMappings.Add("code", "code");
                     bulkCopy.ColumnMappings.Add("stock", "stock");*/
@@ -367,7 +367,7 @@ namespace Levira1
                     dbConnection.Open();
                     using (SqlBulkCopy s = new SqlBulkCopy(dbConnection))
                     {                       
-                        s.DestinationTableName = "[dbo].[leviraprodtexteis]";
+                        s.DestinationTableName = "[dbo].[prodtexteis]";
                         foreach (var column in csvFileData.Columns)
                             s.ColumnMappings.Add(column.ToString(), column.ToString());
                             s.WriteToServer(csvFileData);                  
@@ -471,7 +471,7 @@ namespace Levira1
                 //UploadStatusLabel.Text = "Not a valid csv file to upload";
                 Response.Write("<script>alert('" + "Not a valid csv file to import" + "')</script>");
             }
-            //string csv_file_path = @"C:\tester site\Cópia de Lista Calçado Verão Senhora (P_site).xlsx - Inglês.csv";
+            
         }
     }
 }
